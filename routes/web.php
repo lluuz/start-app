@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BucketController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +28,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::middleware(['auth', 'verified'])->controller(BucketController::class)->group(function () {
+    Route::get('/buckets', 'index');
+    Route::get('/buckets/create', 'create');
+    Route::post('/bucket', 'store');
+    Route::get('/buckets/{id}', 'show');
+    Route::get('/buckets/{id}/edit', 'edit');
+    Route::patch('/buckets/{id}/', 'update');
+    Route::delete('/buckets/{id}/', 'destroy');
+});
+
 
 require __DIR__.'/auth.php';
