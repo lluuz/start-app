@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\File;
+use App\Models\Bucket;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bucket extends Model
+class File extends Model
 {
     use HasFactory;
 
@@ -15,14 +15,7 @@ class Bucket extends Model
      *
      * @var string
      */
-    protected $table = 'buckets';
-
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'bucket_id';
+    protected $table = 'files';
 
     /**
      * The attributes that are mass assignable.
@@ -31,15 +24,14 @@ class Bucket extends Model
      */
     protected $fillable = [
         'name',
-        'location',
         'size',
     ];
 
     /**
-     * Get the files for the bucket.
+     * Get the bucket that includes a file.
      */
-    public function files()
+    public function bucket()
     {
-        return $this->hasMany(File::class);
+        return $this->belongsTo(Bucket::class);
     }
 }

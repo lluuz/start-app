@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bucket;
-use App\Http\Requests\StoreBucketRequest;
-use App\Http\Requests\UpdateBucketRequest;
+use App\Models\File;
+use App\Http\Requests\StoreFileRequest;
+use App\Http\Requests\UpdateFileRequest;
 
-class BucketController extends Controller
+class BucketFileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,7 @@ class BucketController extends Controller
      */
     public function index()
     {
-        $buckets = Bucket::all();
-
-        return view('buckets.index.blade')->with('buckets', $buckets);
+        //
     }
 
     /**
@@ -27,15 +25,16 @@ class BucketController extends Controller
      */
     public function create()
     {
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBucketRequest  $request
+     * @param  \App\Http\Requests\StoreFileRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBucketRequest $request)
+    public function store(StoreFileRequest $request)
     {
         //
     }
@@ -43,21 +42,21 @@ class BucketController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Bucket  $bucket
+     * @param  \App\Models\File  $file
      * @return \Illuminate\Http\Response
      */
-    public function show(Bucket $bucket)
+    public function show(File $file)
     {
-
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Bucket  $bucket
+     * @param  \App\Models\File  $file
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bucket $bucket)
+    public function edit(File $file)
     {
         //
     }
@@ -65,11 +64,11 @@ class BucketController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateBucketRequest  $request
-     * @param  \App\Models\Bucket  $bucket
+     * @param  \App\Http\Requests\UpdateFileRequest  $request
+     * @param  \App\Models\File  $file
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBucketRequest $request, Bucket $bucket)
+    public function update(UpdateFileRequest $request, File $file)
     {
         //
     }
@@ -77,11 +76,11 @@ class BucketController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Bucket  $bucket
+     * @param  \App\Models\File  $file
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bucket $bucket)
+    public function destroy(File $file)
     {
-
+        //
     }
 }

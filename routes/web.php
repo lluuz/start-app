@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BucketController;
+use App\Http\Controllers\BucketFileController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,16 @@ Route::middleware(['auth', 'verified'])->controller(BucketController::class)->gr
     Route::get('/buckets/{id}/edit', 'edit');
     Route::patch('/buckets/{id}/', 'update');
     Route::delete('/buckets/{id}/', 'destroy');
+});
+
+Route::middleware(['auth', 'verified'])->controller(BucketFileController::class)->group(function () {
+    Route::get('/buckets/{id}/files', 'index');
+    Route::get('/buckets/{id}/files/create', 'create');
+    Route::post('/buckets/{id}/files', 'store');
+    Route::get('/buckets/{id}/files/{file_id}', 'show');
+    Route::get('/buckets/{id}/files/{file_id}/edit', 'edit');
+    Route::patch('/buckets/{id}/files/{file_id}', 'update');
+    Route::delete('/buckets/{id}/files/{file_id}', 'destroy');
 });
 
 
