@@ -17,7 +17,7 @@ class BucketController extends Controller
     {
         $buckets = Bucket::all();
 
-        return view('buckets.index.blade')->with('buckets', $buckets);
+        return view('buckets.index')->with('buckets', $buckets);
     }
 
     /**
